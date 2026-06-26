@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freestyle Barber Shop | Fresh Cuts & Fades in New York, NY</title>
+  <meta name="description" content="Freestyle Barber Shop in New York, NY — Premium haircuts, skin fades, beard trims, and more. Walk in or book your appointment at 165 W 25th St. Call +1 212-206-0918." />
+  <meta name="keywords" content="barber shop New York, barber near me, haircut NYC, fade haircut Manhattan, beard trim New York" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & TOKENS ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:   #080808;
+      --dark:    #111111;
+      --card:    #181818;
+      --border:  #2a2a2a;
+      --gold:    #C9A84C;
+      --gold-lt: #E5C87A;
+      --gold-dk: #9A7B30;
+      --white:   #FFFFFF;
+      --gray:    #AAAAAA;
+      --light:   #F0EDE8;
+      --ff-display: 'Playfair Display', Georgia, serif;
+      --ff-body:    'Inter', system-ui, sans-serif;
+      --ff-label:   'Montserrat', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--ff-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; font-family: var(--ff-label); }
+
+    /* ─── UTILITY ────────────────────────────────────────────────── */
+    .label {
+      font-family: var(--ff-label);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+    }
+    .section-title span { color: var(--gold); }
+    .gold-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--black);
+      font-family: var(--ff-label);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 1.8rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .gold-btn:hover { background: var(--gold-lt); transform: translateY(-2px); }
+    .outline-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--ff-label);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 1.8rem;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .outline-btn:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 6rem 0; }
+
+    /* ─── SLASH MOTIF ────────────────────────────────────────────── */
+    .slash-bg {
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .slash-bg::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -15%;
+      width: 140%;
+      height: 140%;
+      background: linear-gradient(135deg, transparent 42%, rgba(201,168,76,0.07) 42%, rgba(201,168,76,0.07) 46%, transparent 46%),
+                  linear-gradient(135deg, transparent 52%, rgba(201,168,76,0.04) 52%, rgba(201,168,76,0.04) 54%, transparent 54%);
+    }
+
+    /* ─── NAV ────────────────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .nav-logo .wordmark {
+      font-family: var(--ff-display);
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+    }
+    .nav-logo .sub {
+      font-family: var(--ff-label);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--ff-label);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { display: flex; gap: 0.75rem; align-items: center; }
+    .nav-call {
+      font-family: var(--ff-label);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      padding: 0.5rem 1.1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-call:hover { background: var(--gold); color: var(--black); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: 4px;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: 0.3s; }
+
+    /* ─── HERO ───────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 0;
+      background: var(--black);
+    }
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1600&q=80');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.18;
+      filter: grayscale(30%);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(8,8,8,0.97) 45%, rgba(8,8,8,0.4) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      padding-top: 5rem;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 2px;
+      background: var(--gold);
+    }
+    .hero-h1 {
+      font-family: var(--ff-display);
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: var(--ff-label);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 4px;
+    }
+
+    /* ─── ABOUT ──────────────────────────────────────────────────── */
+    #about { background: var(--dark); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      filter: grayscale(20%);
+    }
+    .about-img-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      width: 120px;
+      height: 120px;
+      background: var(--gold);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .about-img-badge .yrs {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--black);
+      line-height: 1;
+    }
+    .about-img-badge .yrs-label {
+      font-family: var(--ff-label);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-top: 4px;
+    }
+    .about-text .label { margin-bottom: 1rem; }
+    .about-text .section-title { margin-bottom: 1.5rem; }
+    .about-text p { color: var(--gray); line-height: 1.8; margin-bottom: 1.25rem; font-size: 0.97rem; }
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+    .pillar-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .pillar-title {
+      font-family: var(--ff-label);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+    .pillar-desc { font-size: 0.8rem; color: var(--gray); line-height: 1.5; }
+
+    /* ─── SERVICES ───────────────────────────────────────────────── */
+    #services { background: var(--black); }
+    .services-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3.5rem;
+      gap: 2rem;
+    }
+    .services-header .label { margin-bottom: 0.75rem; }
+    .services-header p { color: var(--gray); max-width: 360px; font-size: 0.93rem; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+    .service-card {
+      padding: 2.5rem 1.5rem;
+      border-right: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .service-card:last-child { border-right: none; }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.4s;
+    }
+    .service-card:hover { background: var(--card); }
+    .service-card:hover::after { width: 100%; }
+    .svc-icon {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+    .svc-name {
+      font-family: var(--ff-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .svc-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
+    .svc-price {
+      display: inline-block;
+      font-family: var(--ff-label);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-top: 1rem;
+    }
+
+    /* ─── GALLERY ────────────────────────────────────────────────── */
+    #gallery { background: var(--dark); }
+    .gallery-header { text-align: center; margin-bottom: 3rem; }
+    .gallery-header .label { justify-content: center; display: flex; margin-bottom: 0.75rem; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 0.5rem;
+    }
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%);
+      transition: transform 0.5s, filter 0.4s;
+    }
+    .gallery-item:hover img { transform: scale(1.04); filter: grayscale(0%); }
+    .g1 { grid-column: span 5; aspect-ratio: 4/5; }
+    .g2 { grid-column: span 4; aspect-ratio: 3/4; }
+    .g3 { grid-column: span 3; aspect-ratio: 2/3; }
+    .g4 { grid-column: span 4; aspect-ratio: 4/3; }
+    .g5 { grid-column: span 5; aspect-ratio: 5/4; }
+    .g6 { grid-column: span 3; aspect-ratio: 3/4; }
+
+    /* ─── TESTIMONIALS ───────────────────────────────────────────── */
+    #testimonials { background: var(--black); }
+    .testi-header { margin-bottom: 3rem; }
+    .testi-header .label { margin-bottom: 0.75rem; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    .testi-card {
+      background: var(--dark);
+      padding: 2.5rem;
+      position: relative;
+    }
+    .stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1.25rem;
+    }
+    .stars span { color: var(--gold); font-size: 1rem; }
+    .testi-quote {
+      font-family: var(--ff-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.45;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .testi-quote::before { content: '\201C'; color: var(--gold); }
+    .testi-quote::after  { content: '\201D'; color: var(--gold); }
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testi-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .testi-name {
+      font-family: var(--ff-label);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .testi-via { font-size: 0.75rem; color: var(--gray); margin-top: 1px; }
+    .testi-extra {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin-top: 1px;
+    }
+    .testi-extra .testi-card { padding: 2rem 2.5rem; }
+
+    /* ─── LOCATION ───────────────────────────────────────────────── */
+    #location { background: var(--dark); }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .location-info .label { margin-bottom: 1rem; }
+    .location-info .section-title { margin-bottom: 1.5rem; }
+    .location-details { margin-bottom: 2rem; }
+    .detail-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .detail-row:first-child { border-top: 1px solid var(--border); }
+    .detail-icon { font-size: 1.2rem; flex-shrink: 0; color: var(--gold); margin-top: 1px; }
+    .detail-label {
+      font-family: var(--ff-label);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 3px;
+    }
+    .detail-value { font-size: 0.97rem; color: var(--white); line-height: 1.4; }
+    .detail-value a { color: var(--gold); }
+    .location-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .map-wrap {
+      position: relative;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 420px;
+      border: 0;
+      filter: grayscale(60%) contrast(1.1);
+    }
+    .map-label {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: var(--black);
+      border: 1px solid var(--gold);
+      padding: 0.5rem 0.9rem;
+    }
+    .map-label span {
+      font-family: var(--ff-label);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ─── FINAL CTA ──────────────────────────────────────────────── */
+    #cta {
+      background: var(--gold);
+      padding: 5rem 0;
+    }
+    .cta-inner { text-align: center; max-width: 700px; margin: 0 auto; }
+    .cta-eyebrow {
+      font-family: var(--ff-label);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(8,8,8,0.6);
+      margin-bottom: 1rem;
+    }
+    .cta-h2 {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--black);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .cta-sub { font-size: 0.97rem; color: rgba(8,8,8,0.65); margin-bottom: 2.5rem; line-height: 1.7; }
+    .cta-btns { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+    .dark-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--black);
+      color: var(--gold);
+      font-family: var(--ff-label);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 1.8rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .dark-btn:hover { background: #1a1a1a; transform: translateY(-2px); }
+    .ghost-dark-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--black);
+      font-family: var(--ff-label);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 1.8rem;
+      border: 1.5px solid rgba(8,8,8,0.4);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .ghost-dark-btn:hover { border-color: var(--black); transform: translateY(-2px); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────── */
+    footer {
+      background: #050505;
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-logo .wordmark { font-family: var(--ff-display); font-size: 1.1rem; font-weight: 900; }
+    .footer-logo .sub { font-family: var(--ff-label); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a {
+      font-family: var(--ff-label);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.78rem; color: var(--gray); }
+    .footer-copy span { color: var(--gold); }
+
+    /* ─── MOBILE NAV ─────────────────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: #0d0d0d;
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      gap: 1.25rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--ff-label);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ─── SCROLL REVEAL ──────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .service-card:nth-child(3) { border-right: none; }
+      .service-card:nth-child(4),
+      .service-card:nth-child(5) { border-top: 1px solid var(--border); }
+    }
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-img-wrap { max-width: 500px; margin: 0 auto; }
+      .location-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .testi-extra { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-cta .nav-call { display: none; }
+      .gallery-grid { grid-template-columns: repeat(6, 1fr); }
+      .g1 { grid-column: span 6; aspect-ratio: 16/9; }
+      .g2 { grid-column: span 3; }
+      .g3 { grid-column: span 3; }
+      .g4 { grid-column: span 4; }
+      .g5 { grid-column: span 4; }
+      .g6 { grid-column: span 4; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 4rem 0; }
+      .services-header { flex-direction: column; align-items: flex-start; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .service-card:nth-child(odd) { border-right: 1px solid var(--border); }
+      .service-card:nth-child(even) { border-right: none; }
+      .service-card:nth-child(3),
+      .service-card:nth-child(4),
+      .service-card:nth-child(5) { border-top: 1px solid var(--border); }
+      .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+      .about-pillars { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 0.35rem; }
+      .g1,.g2,.g3,.g4,.g5,.g6 { grid-column: span 1; aspect-ratio: 1; }
+      .location-btns { flex-direction: column; }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ──────────────────────────────────────────────── -->
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="wordmark">Freestyle</span>
+        <span class="sub">Barber Shop · New York</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#location">Location</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:+12122060918" class="nav-call">📞 Call Now</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about" onclick="closeMenu()">About</a>
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#gallery" onclick="closeMenu()">Gallery</a>
+      <a href="#testimonials" onclick="closeMenu()">Reviews</a>
+      <a href="#location" onclick="closeMenu()">Location & Contact</a>
+      <a href="tel:+12122060918" style="color:var(--gold);">📞 +1 212-206-0918 — Call Now</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ──────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-bg-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="slash-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-eyebrow">
+        <span class="label">New York City's Premier Shop</span>
+      </div>
+      <h1 class="hero-h1">
+        Fresh Cuts.<br>
+        Clean Fades.<br>
+        <em>Premium</em> Grooming.
+      </h1>
+      <p class="hero-sub">Walk in or book your appointment today at Freestyle Barber Shop — where every cut is a craft.</p>
+      <div class="hero-btns">
+        <a href="tel:+12122060918" class="gold-btn">📞 Call Now</a>
+        <a href="https://maps.google.com/?q=165+W+25th+St,+New+York,+NY+10001" target="_blank" rel="noopener" class="outline-btn">📍 Get Directions</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years in NYC</div>
+        </div>
+        <div>
+          <div class="stat-num">5K+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div>
+          <div class="stat-num">5★</div>
+          <div class="stat-label">Average Rating</div>
+        </div>
+        <div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">Expert Barbers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─────────────────────────────────────────────── -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-wrap reveal">
+          <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&q=80" alt="Freestyle Barber Shop interior — clean, modern barbershop in New York" class="about-img" loading="lazy" />
+          <div class="about-img-badge">
+            <span class="yrs">10+</span>
+            <span class="yrs-label">Years of<br>Excellence</span>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <div class="label">About Us</div>
+          <h2 class="section-title">More Than a<br><span>Haircut.</span></h2>
+          <p>At Freestyle Barber Shop, we believe the chair is where confidence is built. Located in the heart of Chelsea, Manhattan, we've been crafting clean fades, precise lineups, and signature styles for New Yorkers who demand the best.</p>
+          <p>Our team of experienced barbers brings skill, style, and respect to every single client — whether you're a first-timer or a loyal regular. No rushed cuts, no compromises.</p>
+          <div class="about-pillars">
+            <div class="pillar">
+              <span class="pillar-icon">✂️</span>
+              <div>
+                <div class="pillar-title">Expert Barbers</div>
+                <div class="pillar-desc">Trained professionals with years of cutting-edge experience</div>
+              </div>
+            </div>
+            <div class="pillar">
+              <span class="pillar-icon">✨</span>
+              <div>
+                <div class="pillar-title">Clean & Welcoming</div>
+                <div class="pillar-desc">A relaxed, hygienic space you'll want to come back to</div>
+              </div>
+            </div>
+            <div class="pillar">
+              <span class="pillar-icon">🏆</span>
+              <div>
+                <div class="pillar-title">Premium Products</div>
+                <div class="pillar-desc">Top-tier grooming products for the best results</div>
+              </div>
+            </div>
+            <div class="pillar">
+              <span class="pillar-icon">📍</span>
+              <div>
+                <div class="pillar-title">Serving New York</div>
+                <div class="pillar-desc">Walk-ins welcome — no appointment stress</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ──────────────────────────────────────────── -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header reveal">
+        <div>
+          <div class="label">What We Offer</div>
+          <h2 class="section-title">Our <span>Services</span></h2>
+        </div>
+        <p>From classic cuts to modern fades — every service is performed with precision and pride.</p>
+      </div>
+      <div class="services-grid reveal">
+        <div class="service-card">
+          <div class="svc-icon">💈</div>
+          <div class="svc-name">Haircuts</div>
+          <div class="svc-desc">Classic and contemporary cuts tailored to your head shape and personal style.</div>
+          <span class="svc-price">Starting $35</span>
+        </div>
+        <div class="service-card">
+          <div class="svc-icon">🪒</div>
+          <div class="svc-name">Skin Fades</div>
+          <div class="svc-desc">Flawless taper and skin fades — graduated to perfection for a sharp, clean look.</div>
+          <span class="svc-price">Starting $40</span>
+        </div>
+        <div class="service-card">
+          <div class="svc-icon">🧔</div>
+          <div class="svc-name">Beard Trim & Shape-up</div>
+          <div class="svc-desc">Precise beard sculpting, edge-ups, and conditioning to keep your beard on point.</div>
+          <span class="svc-price">Starting $25</span>
+        </div>
+        <div class="service-card">
+          <div class="svc-icon">👦</div>
+          <div class="svc-name">Kids Haircuts</div>
+          <div class="svc-desc">Patient, gentle cuts for the little ones. A fun, friendly experience every time.</div>
+          <span class="svc-price">Starting $25</span>
+        </div>
+        <div class="service-card">
+          <div class="svc-icon">🔥</div>
+          <div class="svc-name">Hot Towel Shave</div>
+          <div class="svc-desc">The full traditional experience — hot towel, straight razor, and premium post-shave care.</div>
+          <span class="svc-price">Starting $45</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GALLERY ───────────────────────────────────────────── -->
+  <section id="gallery">
+    <div class="container">
+      <div class="gallery-header reveal">
+        <div class="label">Our Work</div>
+        <h2 class="section-title">The <span>Craft</span> Speaks</h2>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item g1">
+          <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80" alt="Fresh fade haircut at Freestyle Barber Shop NYC" loading="lazy" />
+        </div>
+        <div class="gallery-item g2">
+          <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&q=80" alt="Barber giving a clean skin fade in New York" loading="lazy" />
+        </div>
+        <div class="gallery-item g3">
+          <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=500&q=80" alt="Beard trim and shape-up at Freestyle Barber Shop" loading="lazy" />
+        </div>
+        <div class="gallery-item g4">
+          <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=700&q=80" alt="Barber chair and tools — Freestyle Barber Shop Chelsea" loading="lazy" />
+        </div>
+        <div class="gallery-item g5">
+          <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&q=80" alt="Professional barber at work, New York barbershop" loading="lazy" />
+        </div>
+        <div class="gallery-item g6">
+          <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=500&q=80" alt="Hot towel shave service in NYC" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ──────────────────────────────────────── -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="testi-header reveal">
+        <div class="label">Client Reviews</div>
+        <h2 class="section-title">What New Yorkers <span>Say</span></h2>
+      </div>
+      <div class="testi-grid reveal">
+        <div class="testi-card">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="testi-quote">Best fade I've ever gotten in NYC. The detail on the edge-up was insane — completely changed how my head looks.</div>
+          <div class="testi-author">
+            <div class="testi-avatar">M</div>
+            <div>
+              <div class="testi-name">Marcus T.</div>
+              <div class="testi-via">Google Review</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="testi-quote">Clean shop, professional barbers, and zero wait time on a Tuesday. Exactly what you want in a neighborhood barber.</div>
+          <div class="testi-author">
+            <div class="testi-avatar">J</div>
+            <div>
+              <div class="testi-name">Jordan R.</div>
+              <div class="testi-via">Google Review</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="testi-quote">Always consistent. I've been coming here for two years — never once left disappointed. Highly recommend Freestyle.</div>
+          <div class="testi-author">
+            <div class="testi-avatar">A</div>
+            <div>
+              <div class="testi-name">Andre L.</div>
+              <div class="testi-via">Google Review</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-extra reveal">
+        <div class="testi-card">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="testi-quote">Brought my son for his first real haircut and they made it such a great experience. Kid-friendly and super patient.</div>
+          <div class="testi-author">
+            <div class="testi-avatar">D</div>
+            <div>
+              <div class="testi-name">David K.</div>
+              <div class="testi-via">Yelp Review</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="testi-quote">The hot towel shave is on another level. Walked out feeling like a new man. Worth every penny in Manhattan.</div>
+          <div class="testi-author">
+            <div class="testi-avatar">R</div>
+            <div>
+              <div class="testi-name">Ryan P.</div>
+              <div class="testi-via">Google Review</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── LOCATION ──────────────────────────────────────────── -->
+  <section id="location">
+    <div class="container">
+      <div class="location-grid">
+        <div class="location-info reveal">
+          <div class="label">Find Us</div>
+          <h2 class="section-title">Visit the <span>Shop</span></h2>
+          <div class="location-details">
+            <div class="detail-row">
+              <span class="detail-icon">📍</span>
+              <div>
+                <div class="detail-label">Address</div>
+                <div class="detail-value">165 W 25th St<br>New York, NY 10001<br>United States</div>
+              </div>
+            </div>
+            <div class="detail-row">
+              <span class="detail-icon">📞</span>
+              <div>
+                <div class="detail-label">Phone</div>
+                <div class="detail-value"><a href="tel:+12122060918">+1 212-206-0918</a></div>
+              </div>
+            </div>
+            <div class="detail-row">
+              <span class="detail-icon">🕐</span>
+              <div>
+                <div class="detail-label">Hours</div>
+                <div class="detail-value">
+                  Mon – Fri: 9:00 AM – 8:00 PM<br>
+                  Saturday: 9:00 AM – 6:00 PM<br>
+                  Sunday: 10:00 AM – 5:00 PM
+                </div>
+              </div>
+            </div>
+            <div class="detail-row">
+              <span class="detail-icon">🚇</span>
+              <div>
+                <div class="detail-label">Transit</div>
+                <div class="detail-value">F/M/1/2/3 trains to 23rd St<br>Street parking available on 25th St</div>
+              </div>
+            </div>
+          </div>
+          <div class="location-btns">
+            <a href="tel:+12122060918" class="gold-btn">📞 Call +1 212-206-0918</a>
+            <a href="https://maps.google.com/?q=165+W+25th+St,+New+York,+NY+10001" target="_blank" rel="noopener" class="outline-btn">📍 Get Directions</a>
+          </div>
+        </div>
+        <div class="map-wrap reveal">
+          <div class="map-label"><span>📍 Freestyle Barber Shop</span></div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.0452617688894!2d-73.99591618459398!3d40.74658197932797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a62ae6be67%3A0x9c6c83fbc47fc5b5!2s165%20W%2025th%20St%2C%20New%20York%2C%20NY%2010001!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus"
+            width="600"
+            height="420"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Freestyle Barber Shop location map"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA ─────────────────────────────────────────── -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="cta-eyebrow">Ready When You Are</div>
+        <h2 class="cta-h2">Ready for a Fresh Cut?<br>Visit Us Today.</h2>
+        <p class="cta-sub">Walk-ins are always welcome. Stop by Freestyle Barber Shop at 165 W 25th St, or call ahead to get a head start on your cut.</p>
+        <div class="cta-btns">
+          <a href="tel:+12122060918" class="dark-btn">📞 Call Now</a>
+          <a href="https://maps.google.com/?q=165+W+25th+St,+New+York,+NY+10001" target="_blank" rel="noopener" class="ghost-dark-btn">📍 Get Directions</a>
+          <a href="tel:+12122060918" class="ghost-dark-btn">📅 Book Appointment</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <div class="wordmark">Freestyle</div>
+        <div class="sub">Barber Shop · NYC</div>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#location">Location</a>
+        <a href="tel:+12122060918">Call Us</a>
+      </div>
+      <div class="footer-copy">© 2024 <span>Freestyle Barber Shop</span>. 165 W 25th St, New York, NY 10001</div>
+    </div>
+  </footer>
+
+  <!-- ─── JS ───────────────────────────────────────────────── -->
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMenu() { mobileMenu.classList.remove('open'); }
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(r => observer.observe(r));
+
+    // Nav active state on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+      });
+    }, { passive: true });
+
+    // Smooth mobile close on anchor click
+    document.querySelectorAll('.mobile-menu a[href^="#"]').forEach(a => {
+      a.addEventListener('click', closeMenu);
+    });
+  </script>
+</body>
+</html>
